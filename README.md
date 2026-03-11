@@ -1,77 +1,67 @@
-# SOC PCAP Analysis Tool
+Install required dependencies.
 
-A lightweight SOC-focused PCAP triage dashboard designed to help analysts quickly investigate packet captures without spending hours manually reviewing them in Wireshark.
+pip install -r requirements.txt
 
-The tool automatically analyzes a `.pcap` or `.pcapng` file and generates:
+Or with Python3:
 
-• Threat findings  
-• Network behavior summary  
-• Host activity insights  
-• DNS and TLS indicators  
-• HTTP request patterns  
-• Conversation flows  
-• Capture health metrics  
+pip3 install -r requirements.txt
+Running the Tool
 
-It also generates a **formal incident-ready analysis summary report** which can be downloaded as a **PDF**.
+Start the analysis server.
 
----
+python3 analyzer.py
 
-# Features
+Once the server starts, open your browser and navigate to:
 
-SOC-oriented triage dashboard
+http://127.0.0.1:8765
+Using the Tool
 
-• One-command launch  
-• Web UI dashboard  
-• Automatic PCAP analysis  
-• Host activity profiling  
-• DNS & TLS inspection  
-• Web request analysis  
-• Conversation flow detection  
-• Priority findings detection  
-• Analyst takeaway generation  
-• Formal report generator  
-• Downloadable PDF summary
+Open the dashboard in your browser.
 
----
+Upload a .pcap or .pcapng file.
 
-# Dashboard Overview
+Select an analysis mode.
 
-The UI provides:
+Click Analyze PCAP.
 
-PCAP Summary
-- packet count
-- top protocols
-- triage score
-- findings
+Review the results in the dashboard tabs.
 
-Capture Health
-- average packet size
-- median packet size
-- top ports
-- top DNS queries
+Open Analysis Summary to generate the formal report.
 
-Investigation Tabs
-- Findings
-- Hosts
-- Network
-- DNS & TLS
-- Web
-- Flows
+Download the PDF report if needed.
 
-Formal Report
-- Executive overview
-- Analyst takeaway
-- Priority findings
-- Most relevant hosts
-- Capture metrics
-- Recommendations
+Analysis Modes
+Mode	Description
+quick	Fast statistical analysis
+hunt	Deep SOC investigation mode
+web	Focus on HTTP activity
+dns	Focus on DNS queries
 
----
+Recommended mode for investigations:
 
-# Installation
-
-Clone or download the project.
-
-```bash
-https://github.com/jameskyle100/soc-pcap-analysis-tool.git
+hunt
+Example Usage
+git clone https://github.com/jameskyle100/soc-pcap-analysis-tool.git
 cd soc-pcap-analysis-tool
+pip install -r requirements.txt
+python3 analyzer.py
+
+Open:
+
+http://127.0.0.1:8765
+
+Upload a PCAP file and begin analysis.
+
+Security Notice
+
+This tool performs local static packet analysis only.
+
+It does NOT:
+
+execute payloads
+
+connect to external threat intelligence services
+
+upload PCAP data anywhere
+
+All analysis is performed locally on the machine running the tool.
