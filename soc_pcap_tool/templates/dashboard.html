@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SOC PCAP Triage Dashboard</title>
   <style>
-    :root {{
+    :root {
       --bg:#0f172a;
       --panel:#111827;
       --panel-2:#1f2937;
@@ -18,44 +18,44 @@
       --red2:#dc2626;
       --blue1:#0f2d5c;
       --blue2:#0b1f44;
-    }}
+    }
 
-    * {{ box-sizing:border-box; }}
+    * { box-sizing:border-box; }
 
-    body {{
+    body {
       margin:0;
       font-family:Arial,sans-serif;
       background:linear-gradient(180deg,#020617 0%,#0f172a 100%);
       color:var(--text);
-    }}
+    }
 
-    .container {{
+    .container {
       max-width:1400px;
       margin:0 auto;
       padding:24px;
-    }}
+    }
 
-    .hero,.card,.finding {{
+    .hero,.card,.finding {
       background:rgba(15,23,42,.92);
       border:1px solid var(--border);
       border-radius:22px;
       box-shadow:0 8px 24px rgba(0,0,0,.18);
-    }}
+    }
 
-    .hero {{
+    .hero {
       padding:28px;
       margin-bottom:22px;
-    }}
+    }
 
-    .hero-top {{
+    .hero-top {
       display:flex;
       justify-content:space-between;
       gap:16px;
       flex-wrap:wrap;
       align-items:end;
-    }}
+    }
 
-    .eyebrow {{
+    .eyebrow {
       display:inline-block;
       background:rgba(56,189,248,.12);
       color:#7dd3fc;
@@ -64,29 +64,29 @@
       border-radius:999px;
       font-size:13px;
       margin-bottom:12px;
-    }}
+    }
 
-    h1 {{
+    h1 {
       margin:0 0 8px 0;
       font-size:34px;
       line-height:1.15;
-    }}
+    }
 
-    h3 {{ margin-top:0; }}
+    h3 { margin-top:0; }
 
-    .sub {{
+    .sub {
       color:var(--muted);
       max-width:760px;
       line-height:1.55;
-    }}
+    }
 
-    .hero-actions,.tabs,.toolbar,.meta-row {{
+    .hero-actions,.tabs,.toolbar,.meta-row {
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-    }}
+    }
 
-    button,.button-like,select,input[type="text"] {{
+    button,.button-like,select,input[type="text"] {
       border:1px solid var(--border);
       background:#0b1220;
       color:var(--text);
@@ -94,227 +94,227 @@
       padding:12px 16px;
       transition:.2s ease;
       font-weight:600;
-    }}
+    }
 
-    input[type="file"] {{
+    input[type="file"] {
       color:var(--text);
       font-weight:600;
-    }}
+    }
 
-    button:hover,.button-like:hover {{
+    button:hover,.button-like:hover {
       border-color:#475569;
       transform:translateY(-1px);
       cursor:pointer;
-    }}
+    }
 
-    .primary {{
+    .primary {
       background:linear-gradient(135deg,#0284c7,#0ea5e9);
       border-color:transparent;
       color:white;
-    }}
+    }
 
-    .summary-btn {{
+    .summary-btn {
       background:linear-gradient(135deg,var(--red1),var(--red2));
       border-color:transparent;
       color:white;
-    }}
+    }
 
-    .summary-btn:hover {{
+    .summary-btn:hover {
       filter:brightness(1.05);
       border-color:transparent;
-    }}
+    }
 
-    .chip {{
+    .chip {
       background:rgba(255,255,255,.04);
       border:1px solid var(--border);
       color:#cbd5e1;
       padding:8px 12px;
       border-radius:999px;
       font-size:13px;
-    }}
+    }
 
-    .stats {{
+    .stats {
       display:grid;
       grid-template-columns:repeat(5,minmax(0,1fr));
       gap:16px;
       margin-bottom:22px;
-    }}
+    }
 
-    .card {{ padding:18px; }}
+    .card { padding:18px; }
 
-    .card-title {{
+    .card-title {
       font-size:13px;
       color:var(--muted);
       margin-bottom:10px;
-    }}
+    }
 
-    .card-value {{
+    .card-value {
       font-size:28px;
       font-weight:700;
       margin-bottom:6px;
-    }}
+    }
 
-    .card-sub {{
+    .card-sub {
       font-size:12px;
       color:var(--muted);
-    }}
+    }
 
-    .main-grid {{
+    .main-grid {
       display:grid;
       grid-template-columns:1.4fr .9fr;
       gap:18px;
       margin-bottom:22px;
-    }}
+    }
 
-    .risk-box,.health-box,.evidence,.flow-row,.row {{
+    .risk-box,.health-box,.evidence,.flow-row,.row {
       background:#0b1220;
       border:1px solid var(--border);
       border-radius:16px;
       padding:14px;
-    }}
+    }
 
-    .bar {{
+    .bar {
       width:100%;
       height:12px;
       background:#111827;
       border-radius:999px;
       overflow:hidden;
       border:1px solid var(--border);
-    }}
+    }
 
-    .bar-fill {{
+    .bar-fill {
       height:100%;
       background:linear-gradient(90deg,#38bdf8,#facc15,#f97316,#ef4444);
       width:0;
       transition:width .4s ease;
-    }}
+    }
 
-    .health-label,.muted,.card-title {{ color:var(--muted); }}
+    .health-label,.muted,.card-title { color:var(--muted); }
 
-    .health-value {{
+    .health-value {
       font-size:22px;
       font-weight:700;
       word-break:break-word;
-    }}
+    }
 
-    .tab-btn.active {{
+    .tab-btn.active {
       background:#1e293b;
       border-color:#475569;
-    }}
+    }
 
-    .tab-panel {{ display:none; }}
-    .tab-panel.active {{ display:block; }}
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
 
-    .finding {{
+    .finding {
       padding:18px;
       margin-bottom:14px;
-    }}
+    }
 
-    .finding-top {{
+    .finding-top {
       display:flex;
       align-items:center;
       gap:12px;
       margin-bottom:10px;
       flex-wrap:wrap;
-    }}
+    }
 
-    .badge {{
+    .badge {
       display:inline-block;
       border-radius:999px;
       padding:6px 10px;
       font-size:12px;
       font-weight:700;
       text-transform:uppercase;
-    }}
+    }
 
-    .sev-critical {{ background:rgba(239,68,68,.12); color:#fca5a5; border:1px solid rgba(239,68,68,.25); }}
-    .sev-high {{ background:rgba(249,115,22,.12); color:#fdba74; border:1px solid rgba(249,115,22,.25); }}
-    .sev-medium {{ background:rgba(245,158,11,.12); color:#fcd34d; border:1px solid rgba(245,158,11,.25); }}
-    .sev-low {{ background:rgba(34,197,94,.12); color:#86efac; border:1px solid rgba(34,197,94,.25); }}
-    .sev-info {{ background:rgba(59,130,246,.12); color:#93c5fd; border:1px solid rgba(59,130,246,.25); }}
+    .sev-critical { background:rgba(239,68,68,.12); color:#fca5a5; border:1px solid rgba(239,68,68,.25); }
+    .sev-high { background:rgba(249,115,22,.12); color:#fdba74; border:1px solid rgba(249,115,22,.25); }
+    .sev-medium { background:rgba(245,158,11,.12); color:#fcd34d; border:1px solid rgba(245,158,11,.25); }
+    .sev-low { background:rgba(34,197,94,.12); color:#86efac; border:1px solid rgba(34,197,94,.25); }
+    .sev-info { background:rgba(59,130,246,.12); color:#93c5fd; border:1px solid rgba(59,130,246,.25); }
 
-    .finding-title {{
+    .finding-title {
       font-size:18px;
       font-weight:700;
-    }}
+    }
 
-    .finding-text {{
+    .finding-text {
       color:#cbd5e1;
       font-size:14px;
       line-height:1.55;
       margin-bottom:12px;
-    }}
+    }
 
-    pre {{
+    pre {
       margin:0;
       white-space:pre-wrap;
       word-break:break-word;
       color:#dbeafe;
       font-size:12px;
       line-height:1.6;
-    }}
+    }
 
-    .section-grid {{
+    .section-grid {
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
       gap:16px;
-    }}
+    }
 
-    .list-card .row {{
+    .list-card .row {
       display:flex;
       justify-content:space-between;
       gap:12px;
       font-size:14px;
       margin-bottom:10px;
-    }}
+    }
 
-    .left {{
+    .left {
       color:#cbd5e1;
       word-break:break-word;
-    }}
+    }
 
-    .right {{
+    .right {
       font-weight:700;
       white-space:nowrap;
-    }}
+    }
 
-    .flow-row {{
+    .flow-row {
       display:flex;
       justify-content:space-between;
       gap:12px;
       align-items:center;
       margin-bottom:10px;
       flex-wrap:wrap;
-    }}
+    }
 
-    .status {{
+    .status {
       margin-top:12px;
       color:#93c5fd;
       font-size:14px;
-    }}
+    }
 
-    .loader {{
+    .loader {
       display:none;
       margin-top:14px;
-    }}
+    }
 
-    .loader.active {{ display:block; }}
+    .loader.active { display:block; }
 
-    .formal-split {{
+    .formal-split {
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:18px;
       margin-top:16px;
-    }}
+    }
 
-    .formal-panel {{
+    .formal-panel {
       background:#0b1220;
       border:1px solid #24364f;
       border-radius:16px;
       padding:18px;
-    }}
+    }
 
-    .formal-panel-title {{
+    .formal-panel-title {
       font-size:16px;
       font-weight:700;
       color:#f8fafc;
@@ -322,15 +322,15 @@
       padding-bottom:10px;
       border-bottom:1px solid #22324d;
       letter-spacing:0.2px;
-    }}
+    }
 
-    .formal-list {{
+    .formal-list {
       display:flex;
       flex-direction:column;
       gap:10px;
-    }}
+    }
 
-    .formal-list-item {{
+    .formal-list-item {
       position:relative;
       padding:10px 12px 10px 18px;
       border-radius:10px;
@@ -338,9 +338,9 @@
       color:#dbe4f0;
       line-height:1.5;
       border-left:3px solid #3b82f6;
-    }}
+    }
 
-    .formal-list-item::before {{
+    .formal-list-item::before {
       content:"";
       position:absolute;
       left:8px;
@@ -349,22 +349,22 @@
       height:5px;
       border-radius:50%;
       background:#93c5fd;
-    }}
+    }
 
-    .ownership-footer {{
+    .ownership-footer {
       margin-top:18px;
       padding-top:14px;
       border-top:1px solid #22324d;
       font-size:12px;
       color:#7f8ea3;
       line-height:1.5;
-    }}
+    }
 
-    .ownership-footer .owner {{
+    .ownership-footer .owner {
       color:#cbd5e1;
-    }}
+    }
 
-    .summary-modal {{
+    .summary-modal {
       display:none;
       position:fixed;
       inset:0;
@@ -372,11 +372,11 @@
       z-index:9999;
       padding:28px;
       overflow-y:auto;
-    }}
+    }
 
-    .summary-modal.active {{ display:block; }}
+    .summary-modal.active { display:block; }
 
-    .summary-modal-content {{
+    .summary-modal-content {
       max-width:1100px;
       margin:0 auto;
       background:linear-gradient(180deg,#081225 0%,#0f172a 100%);
@@ -384,9 +384,9 @@
       border-radius:20px;
       box-shadow:0 20px 60px rgba(0,0,0,.45);
       overflow:hidden;
-    }}
+    }
 
-    .summary-header {{
+    .summary-header {
       display:flex;
       justify-content:space-between;
       align-items:center;
@@ -394,15 +394,15 @@
       padding:24px 28px;
       background:linear-gradient(135deg,var(--blue1),var(--blue2));
       border-bottom:1px solid #1e3a5f;
-    }}
+    }
 
-    .summary-header h2 {{
+    .summary-header h2 {
       margin:8px 0 0 0;
       color:#ffffff;
       font-size:30px;
-    }}
+    }
 
-    .summary-badge {{
+    .summary-badge {
       display:inline-block;
       background:rgba(220,38,38,.18);
       color:#fecaca;
@@ -411,72 +411,72 @@
       border-radius:999px;
       font-size:12px;
       font-weight:700;
-    }}
+    }
 
-    .close-summary-btn {{
+    .close-summary-btn {
       background:var(--red1);
       color:white;
       border:1px solid #b91c1c;
-    }}
+    }
 
-    .summary-body {{
+    .summary-body {
       padding:28px;
       display:grid;
       gap:18px;
-    }}
+    }
 
-    .summary-section {{
+    .summary-section {
       background:rgba(15,23,42,.95);
       border:1px solid #22324d;
       border-radius:16px;
       padding:18px;
-    }}
+    }
 
-    .summary-section h3 {{
+    .summary-section h3 {
       margin:0 0 12px 0;
       color:#f8fafc;
       font-size:18px;
-    }}
+    }
 
-    .summary-grid {{
+    .summary-grid {
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:14px;
-    }}
+    }
 
-    .summary-kv {{
+    .summary-kv {
       background:#0b1220;
       border:1px solid #24364f;
       border-radius:12px;
       padding:12px;
-    }}
+    }
 
-    .summary-kv-label {{
+    .summary-kv-label {
       font-size:12px;
       color:#93c5fd;
       margin-bottom:6px;
-    }}
+    }
 
-    .summary-kv-value {{
+    .summary-kv-value {
       font-size:20px;
       font-weight:700;
       color:#ffffff;
       word-break:break-word;
-    }}
+    }
 
-    .summary-list {{
+    .summary-list {
       margin:0;
       padding-left:18px;
       color:#e2e8f0;
       line-height:1.6;
-    }}
+    }
 
-    .summary-findings {{
+    .summary-findings {
       display:grid;
       gap:12px;
-    }}
+    }
 
-    .summary-finding {{
+    .summary-finding {
       background:#0b1220;
       border-left:6px solid #3b82f6;
       border-radius:12px;
@@ -484,51 +484,51 @@
       border-top:1px solid #24364f;
       border-right:1px solid #24364f;
       border-bottom:1px solid #24364f;
-    }}
+    }
 
-    .summary-finding.high {{ border-left-color:#dc2626; }}
-    .summary-finding.medium {{ border-left-color:#f59e0b; }}
-    .summary-finding.low {{ border-left-color:#22c55e; }}
-    .summary-finding.info {{ border-left-color:#3b82f6; }}
-    .summary-finding.critical {{ border-left-color:#b91c1c; }}
+    .summary-finding.high { border-left-color:#dc2626; }
+    .summary-finding.medium { border-left-color:#f59e0b; }
+    .summary-finding.low { border-left-color:#22c55e; }
+    .summary-finding.info { border-left-color:#3b82f6; }
+    .summary-finding.critical { border-left-color:#b91c1c; }
 
-    .summary-finding-title {{
+    .summary-finding-title {
       color:#ffffff;
       font-weight:700;
       margin-bottom:6px;
-    }}
+    }
 
-    .summary-finding-text {{
+    .summary-finding-text {
       color:#cbd5e1;
       font-size:14px;
       line-height:1.5;
-    }}
+    }
 
-    .summary-footer {{
+    .summary-footer {
       background:#09111f;
       border:1px solid #22324d;
       border-radius:14px;
       padding:16px;
       color:#e2e8f0;
-    }}
+    }
 
-    .summary-footer strong {{ color:#fca5a5; }}
+    .summary-footer strong { color:#fca5a5; }
 
-    @media (max-width:1100px) {{
-      .stats {{ grid-template-columns:repeat(2,minmax(0,1fr)); }}
-      .main-grid,.section-grid,.formal-split,.summary-grid {{ grid-template-columns:1fr; }}
-    }}
+    @media (max-width:1100px) {
+      .stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .main-grid,.section-grid,.formal-split,.summary-grid { grid-template-columns:1fr; }
+    }
 
-    @media (max-width:800px) {{
-      .summary-modal {{ padding:16px; }}
-      .summary-header {{ flex-direction:column; align-items:flex-start; }}
-    }}
+    @media (max-width:800px) {
+      .summary-modal { padding:16px; }
+      .summary-header { flex-direction:column; align-items:flex-start; }
+    }
 
-    @media (max-width:700px) {{
-      .stats {{ grid-template-columns:1fr; }}
-      h1 {{ font-size:28px; }}
-      .container {{ padding:16px; }}
-    }}
+    @media (max-width:700px) {
+      .stats { grid-template-columns:1fr; }
+      h1 { font-size:28px; }
+      .container { padding:16px; }
+    }
   </style>
 </head>
 <body>
@@ -657,133 +657,133 @@
   </div>
 
   <script>
-    let currentReport = {{ summary: {{}}, findings: [], analyst_takeaway: [], host_summary: [] }};
+    let currentReport = { summary: {}, findings: [], analyst_takeaway: [], host_summary: [] };
     const el = (id) => document.getElementById(id);
     const safe = (v, fallback='-') => (v === undefined || v === null || v === '' ? fallback : v);
     const formatNumber = (v) => typeof v === 'number' ? v.toLocaleString() : safe(v);
     const findTopName = (arr) => Array.isArray(arr) && arr.length ? arr[0][0] : '-';
-    const severityClass = (sev) => `sev-${{sev || 'info'}}`;
+    const severityClass = (sev) => `sev-${sev || 'info'}`;
 
-    function renderMiniList(containerId, items) {{
+    function renderMiniList(containerId, items) {
       const box = el(containerId);
       box.innerHTML = '';
-      if (!items || !items.length) {{
+      if (!items || !items.length) {
         box.innerHTML = '<div class="formal-list-item">No data available.</div>';
         return;
-      }}
-      items.forEach(item => {{
+      }
+      items.forEach(item => {
         const div = document.createElement('div');
         div.className = 'formal-list-item';
         div.textContent = item;
         box.appendChild(div);
-      }});
-    }}
+      });
+    }
 
-    function renderRows(containerId, items) {{
+    function renderRows(containerId, items) {
       const box = el(containerId);
       box.innerHTML = '';
-      if (!items || !items.length) {{
+      if (!items || !items.length) {
         box.innerHTML = '<div class="row"><div class="left">No data</div><div class="right">-</div></div>';
         return;
-      }}
-      items.forEach(item => {{
+      }
+      items.forEach(item => {
         const row = document.createElement('div');
         row.className = 'row';
         const left = document.createElement('div');
         left.className = 'left';
         const right = document.createElement('div');
         right.className = 'right';
-        if (Array.isArray(item)) {{
+        if (Array.isArray(item)) {
           left.textContent = String(item[0]);
           right.textContent = String(item[1]);
-        }} else {{
+        } else {
           left.textContent = JSON.stringify(item);
           right.textContent = '';
-        }}
+        }
         row.appendChild(left);
         row.appendChild(right);
         box.appendChild(row);
-      }});
-    }}
+      });
+    }
 
-    function renderHostSummary(items) {{
+    function renderHostSummary(items) {
       const box = el('hostList');
       box.innerHTML = '';
       const filtered = items || [];
-      if (!filtered.length) {{
+      if (!filtered.length) {
         box.innerHTML = '<div class="row"><div class="left">No matching hosts</div><div class="right">-</div></div>';
         return;
-      }}
-      filtered.forEach(row => {{
+      }
+      filtered.forEach(row => {
         const wrap = document.createElement('div');
         wrap.className = 'row';
-        const external = (row.top_external_destinations || []).map(x => `${{x[0]}} (${{x[1]}})`).join(', ') || 'none';
-        const dns = (row.top_dns_queries || []).map(x => `${{x[0]}} (${{x[1]}})`).join(', ') || 'none';
-        const ports = (row.top_ports || []).map(x => `${{x[0]}} (${{x[1]}})`).join(', ') || 'none';
-        wrap.innerHTML = `<div class="left"><strong>${{row.source_ip}}</strong><br>packets=${{row.packet_count}} | bytes=${{row.bytes_sent}}<br>external=${{external}}<br>dns=${{dns}}<br>ports=${{ports}}</div><div class="right">host</div>`;
+        const external = (row.top_external_destinations || []).map(x => `${x[0]} (${x[1]})`).join(', ') || 'none';
+        const dns = (row.top_dns_queries || []).map(x => `${x[0]} (${x[1]})`).join(', ') || 'none';
+        const ports = (row.top_ports || []).map(x => `${x[0]} (${x[1]})`).join(', ') || 'none';
+        wrap.innerHTML = `<div class="left"><strong>${row.source_ip}</strong><br>packets=${row.packet_count} | bytes=${row.bytes_sent}<br>external=${external}<br>dns=${dns}<br>ports=${ports}</div><div class="right">host</div>`;
         box.appendChild(wrap);
-      }});
-    }}
+      });
+    }
 
-    function renderFlows(items) {{
+    function renderFlows(items) {
       const box = el('flowsList');
       box.innerHTML = '';
       const filtered = items || [];
-      if (!filtered.length) {{
+      if (!filtered.length) {
         box.innerHTML = '<div class="flow-row"><div>No matching flows</div><div class="chip">0 packets</div></div>';
         return;
-      }}
-      filtered.forEach(row => {{
+      }
+      filtered.forEach(row => {
         const wrap = document.createElement('div');
         wrap.className = 'flow-row';
-        wrap.innerHTML = `<div><strong>${{safe(row.src_ip)}}</strong> <span class="muted">→</span> <strong>${{safe(row.dst_ip)}}</strong></div><div class="chip">${{safe(row.count, 0)}} packets</div>`;
+        wrap.innerHTML = `<div><strong>${safe(row.src_ip)}</strong> <span class="muted">→</span> <strong>${safe(row.dst_ip)}</strong></div><div class="chip">${safe(row.count, 0)} packets</div>`;
         box.appendChild(wrap);
-      }});
-    }}
+      });
+    }
 
-    function renderFindings(report, severityFilter) {{
+    function renderFindings(report, severityFilter) {
       const box = el('findingsContainer');
       box.innerHTML = '';
       const findings = (report.findings || []).filter(
         f => (severityFilter === 'all' || f.severity === severityFilter)
       );
-      if (!findings.length) {{
+      if (!findings.length) {
         box.innerHTML = '<div class="finding"><div class="finding-text">No findings match the current filters.</div></div>';
         return;
-      }}
-      findings.forEach(f => {{
+      }
+      findings.forEach(f => {
         const item = document.createElement('div');
         item.className = 'finding';
-        item.innerHTML = `<div class="finding-top"><span class="badge ${{severityClass(f.severity)}}">${{safe(f.severity, 'info')}}</span><div class="finding-title">${{safe(f.title)}}</div></div><div class="finding-text">${{safe(f.why_it_matters)}}</div><div class="evidence"><div style="font-weight:700;margin-bottom:8px;">Evidence</div><pre>${{JSON.stringify(f.evidence || {{}}, null, 2)}}</pre></div><div class="finding-text"><strong>Next step:</strong> ${{safe(f.next_step)}}</div>`;
+        item.innerHTML = `<div class="finding-top"><span class="badge ${severityClass(f.severity)}">${safe(f.severity, 'info')}</span><div class="finding-title">${safe(f.title)}</div></div><div class="finding-text">${safe(f.why_it_matters)}</div><div class="evidence"><div style="font-weight:700;margin-bottom:8px;">Evidence</div><pre>${JSON.stringify(f.evidence || {}, null, 2)}</pre></div><div class="finding-text"><strong>Next step:</strong> ${safe(f.next_step)}</div>`;
         box.appendChild(item);
-      }});
-    }}
+      });
+    }
 
-    function buildSummaryHTML(report) {{
-      const s = report.summary || {{}};
+    function buildSummaryHTML(report) {
+      const s = report.summary || {};
       const findings = report.findings || [];
       const takeaway = report.analyst_takeaway || [];
       const hosts = report.host_summary || [];
 
       const topHosts = hosts.slice(0, 5).map(h => `
         <li>
-          <strong>${{h.source_ip}}</strong> —
-          packets: ${{h.packet_count}},
-          bytes: ${{h.bytes_sent}},
-          external: ${{(h.top_external_destinations || []).map(x => `${{x[0]}} (${{x[1]}})`).join(', ') || 'none'}}
+          <strong>${h.source_ip}</strong> —
+          packets: ${h.packet_count},
+          bytes: ${h.bytes_sent},
+          external: ${(h.top_external_destinations || []).map(x => `${x[0]} (${x[1]})`).join(', ') || 'none'}
         </li>
       `).join('');
 
       const topFindings = findings.slice(0, 8).map(f => `
-        <div class="summary-finding ${{f.severity || 'info'}}">
-          <div class="summary-finding-title">${{(f.severity || 'info').toUpperCase()}} — ${{f.title || '-'}}</div>
-          <div class="summary-finding-text">${{f.why_it_matters || '-'}}</div>
-          <div class="summary-finding-text"><strong>Next step:</strong> ${{f.next_step || '-'}}</div>
+        <div class="summary-finding ${f.severity || 'info'}">
+          <div class="summary-finding-title">${(f.severity || 'info').toUpperCase()} — ${f.title || '-'}</div>
+          <div class="summary-finding-text">${f.why_it_matters || '-'}</div>
+          <div class="summary-finding-text"><strong>Next step:</strong> ${f.next_step || '-'}</div>
         </div>
       `).join('');
 
       const takeawayHtml = takeaway.length
-        ? takeaway.map(x => `<li>${{x}}</li>`).join('')
+        ? takeaway.map(x => `<li>${x}</li>`).join('')
         : '<li>No immediate high-signal takeaway generated.</li>';
 
       return `
@@ -792,47 +792,47 @@
           <div class="summary-grid">
             <div class="summary-kv">
               <div class="summary-kv-label">Analyzed File</div>
-              <div class="summary-kv-value">${{report.fileName || '-'}}</div>
+              <div class="summary-kv-value">${report.fileName || '-'}</div>
             </div>
             <div class="summary-kv">
               <div class="summary-kv-label">Mode</div>
-              <div class="summary-kv-value">${{s.mode || '-'}}</div>
+              <div class="summary-kv-value">${s.mode || '-'}</div>
             </div>
             <div class="summary-kv">
               <div class="summary-kv-label">Risk Rating</div>
-              <div class="summary-kv-value">${{(s.triage_rating || 'informational').toUpperCase()}}</div>
+              <div class="summary-kv-value">${(s.triage_rating || 'informational').toUpperCase()}</div>
             </div>
             <div class="summary-kv">
               <div class="summary-kv-label">Triage Score</div>
-              <div class="summary-kv-value">${{s.triage_score ?? 0}}</div>
+              <div class="summary-kv-value">${s.triage_score ?? 0}</div>
             </div>
             <div class="summary-kv">
               <div class="summary-kv-label">Packets</div>
-              <div class="summary-kv-value">${{s.packet_count ?? 0}}</div>
+              <div class="summary-kv-value">${s.packet_count ?? 0}</div>
             </div>
             <div class="summary-kv">
               <div class="summary-kv-label">Findings</div>
-              <div class="summary-kv-value">${{s.finding_count ?? 0}}</div>
+              <div class="summary-kv-value">${s.finding_count ?? 0}</div>
             </div>
           </div>
         </div>
 
         <div class="summary-section">
           <h3>Analyst Takeaway</h3>
-          <ul class="summary-list">${{takeawayHtml}}</ul>
+          <ul class="summary-list">${takeawayHtml}</ul>
         </div>
 
         <div class="summary-section">
           <h3>Priority Findings</h3>
           <div class="summary-findings">
-            ${{topFindings || '<div class="summary-finding info"><div class="summary-finding-title">No notable findings</div><div class="summary-finding-text">No notable findings detected by current heuristics.</div></div>'}}
+            ${topFindings || '<div class="summary-finding info"><div class="summary-finding-title">No notable findings</div><div class="summary-finding-text">No notable findings detected by current heuristics.</div></div>'}
           </div>
         </div>
 
         <div class="summary-section">
           <h3>Most Relevant Hosts</h3>
           <ul class="summary-list">
-            ${{topHosts || '<li>No host summary available.</li>'}}
+            ${topHosts || '<li>No host summary available.</li>'}
           </ul>
         </div>
 
@@ -841,27 +841,27 @@
           <div class="summary-grid">
             <div class="summary-kv">
               <div class="summary-kv-label">Top Protocol</div>
-              <div class="summary-kv-value">${{s.top_protocol || '-'}}</div>
+              <div class="summary-kv-value">${s.top_protocol || '-'}</div>
             </div>
             <div class="summary-kv">
               <div class="summary-kv-label">Unique Source IPs</div>
-              <div class="summary-kv-value">${{s.unique_source_ips ?? 0}}</div>
+              <div class="summary-kv-value">${s.unique_source_ips ?? 0}</div>
             </div>
             <div class="summary-kv">
               <div class="summary-kv-label">Unique Destination IPs</div>
-              <div class="summary-kv-value">${{s.unique_destination_ips ?? 0}}</div>
+              <div class="summary-kv-value">${s.unique_destination_ips ?? 0}</div>
             </div>
             <div class="summary-kv">
               <div class="summary-kv-label">Average Packet Size</div>
-              <div class="summary-kv-value">${{s.avg_packet_size ?? 0}}</div>
+              <div class="summary-kv-value">${s.avg_packet_size ?? 0}</div>
             </div>
             <div class="summary-kv">
               <div class="summary-kv-label">Median Packet Size</div>
-              <div class="summary-kv-value">${{s.median_packet_size ?? 0}}</div>
+              <div class="summary-kv-value">${s.median_packet_size ?? 0}</div>
             </div>
             <div class="summary-kv">
               <div class="summary-kv-label">Capture Window</div>
-              <div class="summary-kv-value">${{(s.first_seen_utc || '-') + ' to ' + (s.last_seen_utc || '-')}}</div>
+              <div class="summary-kv-value">${(s.first_seen_utc || '-') + ' to ' + (s.last_seen_utc || '-')}</div>
             </div>
           </div>
         </div>
@@ -872,65 +872,65 @@
           <span style="font-size:12px;color:#93a4b8;">{{ script_copyright }} Unauthorized copying or redistribution is prohibited.</span>
         </div>
       `;
-    }}
+    }
 
-    function openSummaryModal() {{
+    function openSummaryModal() {
       const modal = el('summaryModal');
       const body = el('summaryBody');
       body.innerHTML = buildSummaryHTML(currentReport);
       modal.classList.add('active');
-    }}
+    }
 
-    function closeSummaryModal() {{
+    function closeSummaryModal() {
       el('summaryModal').classList.remove('active');
-    }}
+    }
 
-    async function downloadSummaryPdf() {{
-      try {{
-        const resp = await fetch('/download-summary-pdf', {{
+    async function downloadSummaryPdf() {
+      try {
+        const resp = await fetch('/download-summary-pdf', {
           method: 'POST',
-          headers: {{ 'Content-Type': 'application/json' }},
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(currentReport),
-        }});
+        });
 
-        if (!resp.ok) {{
+        if (!resp.ok) {
           const err = await resp.json();
           throw new Error(err.error || 'PDF generation failed');
-        }}
+        }
 
         const blob = await resp.blob();
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         const safeName = (currentReport.fileName || 'analysis-summary').replace(/\\.[^/.]+$/, '');
         a.href = url;
-        a.download = `${{safeName}}-analysis-summary.pdf`;
+        a.download = `${safeName}-analysis-summary.pdf`;
         document.body.appendChild(a);
         a.click();
         a.remove();
         window.URL.revokeObjectURL(url);
-      }} catch (err) {{
+      } catch (err) {
         alert(err.message || String(err));
-      }}
-    }}
+      }
+    }
 
-    function render(report) {{
-      const s = report.summary || {{}};
+    function render(report) {
+      const s = report.summary || {};
       const severityFilter = el('severityFilter').value;
 
-      el('chipFilename').textContent = `File: ${{safe(report.fileName, 'none loaded')}}`;
-      el('chipMode').textContent = `Mode: ${{safe(s.mode, 'hunt')}}`;
-      el('chipRating').textContent = `Rating: ${{safe(s.triage_rating, 'informational')}}`;
+      el('chipFilename').textContent = `File: ${safe(report.fileName, 'none loaded')}`;
+      el('chipMode').textContent = `Mode: ${safe(s.mode, 'hunt')}`;
+      el('chipRating').textContent = `Rating: ${safe(s.triage_rating, 'informational')}`;
       el('statPackets').textContent = formatNumber(s.packet_count || 0);
-      el('statPacketsSub').textContent = `Top protocol: ${{safe(s.top_protocol)}}`;
+      el('statPacketsSub').textContent = `Top protocol: ${safe(s.top_protocol)}`;
       el('statDestinations').textContent = formatNumber(s.unique_destination_ips || 0);
-      el('statDestinationsSub').textContent = `${{formatNumber(s.unique_source_ips || 0)}} sources`;
+      el('statDestinationsSub').textContent = `${formatNumber(s.unique_source_ips || 0)} sources`;
       el('statScore').textContent = formatNumber(s.triage_score || 0);
       el('statScoreSub').textContent = safe(s.triage_rating, 'informational');
       el('statFindings').textContent = formatNumber(s.finding_count || 0);
       el('statWindow').textContent = s.first_seen_utc && s.last_seen_utc ? 'loaded' : '-';
-      el('statWindowSub').textContent = `${{safe(s.first_seen_utc)}} to ${{safe(s.last_seen_utc)}}`;
+      el('statWindowSub').textContent = `${safe(s.first_seen_utc)} to ${safe(s.last_seen_utc)}`;
       el('riskRating').textContent = String(safe(s.triage_rating, 'informational')).toUpperCase();
-      el('riskBar').style.width = `${{Math.max(0, Math.min(100, Number(s.triage_score || 0)))}}%`;
+      el('riskBar').style.width = `${Math.max(0, Math.min(100, Number(s.triage_score || 0)))}%`;
       el('healthAvg').textContent = safe(s.avg_packet_size);
       el('healthMedian').textContent = safe(s.median_packet_size);
       el('healthPort').textContent = findTopName(report.top_destination_ports);
@@ -947,66 +947,66 @@
       renderRows('httpList', report.top_http_requests || []);
       renderRows('portList', report.top_destination_ports || []);
       renderFlows(report.top_conversations || []);
-    }}
+    }
 
-    document.querySelectorAll('.tab-btn').forEach(btn => {{
-      btn.addEventListener('click', () => {{
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
         btn.classList.add('active');
-        document.getElementById(`panel-${{btn.dataset.tab}}`).classList.add('active');
-      }});
-    }});
+        document.getElementById(`panel-${btn.dataset.tab}`).classList.add('active');
+      });
+    });
 
     el('severityFilter').addEventListener('change', () => render(currentReport));
 
-    el('analyzeBtn').addEventListener('click', async () => {{
+    el('analyzeBtn').addEventListener('click', async () => {
       const fileInput = el('pcapUpload');
       const mode = el('modeUpload').value;
       const file = fileInput.files && fileInput.files[0];
-      if (!file) {{
+      if (!file) {
         alert('Please choose a .pcap or .pcapng file first.');
         return;
-      }}
+      }
 
       const form = new FormData();
       form.append('pcap', file);
       form.append('mode', mode);
       el('loader').classList.add('active');
-      el('statusText').textContent = `Analyzing ${{file.name}} in ${{mode}} mode...`;
+      el('statusText').textContent = `Analyzing ${file.name} in ${mode} mode...`;
 
-      try {{
-        const resp = await fetch('/analyze', {{ method: 'POST', body: form }});
+      try {
+        const resp = await fetch('/analyze', { method: 'POST', body: form });
         const data = await resp.json();
         if (!resp.ok) throw new Error(data.error || 'Analysis failed');
         currentReport = data;
         render(currentReport);
-        el('statusText').textContent = `Analysis complete for ${{file.name}}`;
-      }} catch (err) {{
+        el('statusText').textContent = `Analysis complete for ${file.name}`;
+      } catch (err) {
         alert(err.message || String(err));
         el('statusText').textContent = 'Analysis failed.';
-      }} finally {{
+      } finally {
         el('loader').classList.remove('active');
-      }}
-    }});
+      }
+    });
 
-    el('summaryBtn').addEventListener('click', () => {{
+    el('summaryBtn').addEventListener('click', () => {
       openSummaryModal();
-    }});
+    });
 
-    el('closeSummaryBtn').addEventListener('click', () => {{
+    el('closeSummaryBtn').addEventListener('click', () => {
       closeSummaryModal();
-    }});
+    });
 
-    el('downloadPdfBtn').addEventListener('click', () => {{
+    el('downloadPdfBtn').addEventListener('click', () => {
       downloadSummaryPdf();
-    }});
+    });
 
-    el('summaryModal').addEventListener('click', (e) => {{
-      if (e.target.id === 'summaryModal') {{
+    el('summaryModal').addEventListener('click', (e) => {
+      if (e.target.id === 'summaryModal') {
         closeSummaryModal();
-      }}
-    }});
+      }
+    });
 
     render(currentReport);
   </script>
