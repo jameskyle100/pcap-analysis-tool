@@ -1,6 +1,6 @@
-# SOC PCAP Analysis Tool
+# PCAP Analysis Tool
 
-A SOC-focused PCAP triage dashboard designed to help security analysts quickly analyze packet capture files without spending hours manually reviewing traffic in Wireshark.
+Investigation-ready PCAP analysis for faster SOC triage and deeper network insight.
 
 The tool automatically analyzes `.pcap` and `.pcapng` files and produces investigation-ready insights including network behavior, suspicious activity indicators, and a formal analysis summary report.
 
