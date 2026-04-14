@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+*.env
+*.zip
+soc_pcap_tool_integrations.json
+.DS_Store
+Thumbs.db
