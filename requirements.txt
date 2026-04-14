@@ -2,4 +2,4 @@ flask
 scapy
 reportlab
 werkzeug
-dpkt
+pytest
