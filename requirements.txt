@@ -1,5 +1,0 @@
-flask
-scapy
-reportlab
-werkzeug
-pytest
